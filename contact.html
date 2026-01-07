@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>تماس</title>
+    <title>تماس با ما</title>
+
     <style>
         body {
             font-family: Arial;
-            text-align: center;
+            background-color: #f4f6f8;
             padding: 80px;
-            background: #f4f6f8;
+            text-align: center;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            font-size: 18px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
         }
 
         a {
-            text-decoration: none;
+            display: block;
+            margin-top: 20px;
             color: #2563eb;
-            font-size: 18px;
+            text-decoration: none;
         }
     </style>
 </head>
+
 <body>
 
 <h1>تماس با ما</h1>
-<p>ایمیل: example@email.com</p>
+
+<form onsubmit="sendMessage(); return false;">
+    <input type="text" placeholder="نام شما" required>
+    <input type="email" placeholder="ایمیل شما" required>
+    <textarea placeholder="پیام شما" rows="4" required></textarea>
+
+    <button type="submit">ارسال پیام</button>
+</form>
 
 <a href="index.html">بازگشت به خانه</a>
+
+<script>
+    function sendMessage() {
+        alert("✅ پیام شما ارسال شد (نمونه)");
+    }
+</script>
 
 </body>
 </html>
