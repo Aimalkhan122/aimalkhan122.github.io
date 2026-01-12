@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شاهین وب | مرکز نقشه‌ها و لینک‌ها</title>
+
+    <!-- 🔹 SEO Meta -->
+    <title>نقشه ساحات غیرپلانی مزار شریف | وزارت شهرسازی و بسهازی – ابوایوب</title>
+
+    <meta name="description" content="نقشه ساحات غیرپلانی شهر مزار شریف مرتبط با وزارت شهرسازی و بسهازی، شامل موقعیت ابوایوب و بررسی پلان‌های شهری برای استفاده عمومی و تخصصی.">
+
+    <meta name="keywords" content="وزارت شهرسازی, وزارت شهرسازی و بسهازی, ساحات غیرپلانی, پلان شهری, ابوایوب, مزار شریف, نقشه شهرسازی مزار, Google Map مزار شریف">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap');
 
@@ -20,9 +28,16 @@
         body { background-color: var(--bg-alt); color: var(--dark); line-height: 1.6; padding: 40px 20px; }
 
         .container { max-width: 1000px; margin: 0 auto; text-align: center; }
-        
         h1 { font-size: 32px; margin-bottom: 10px; color: var(--dark); }
-        p.subtitle { color: var(--gray); margin-bottom: 40px; }
+        p.subtitle { color: var(--gray); margin-bottom: 30px; }
+
+        .seo-text {
+            text-align: right;
+            margin: 30px 0;
+            line-height: 1.9;
+            font-size: 16px;
+            color: #1e293b;
+        }
 
         .back-btn {
             display: inline-block; margin-bottom: 30px; padding: 10px 20px;
@@ -31,7 +46,6 @@
         }
         .back-btn:hover { background: #4338ca; transform: translateX(5px); }
 
-        /* استایل کارت‌های نقشه */
         .map-card {
             background: white; border-radius: 15px; overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 40px;
@@ -39,45 +53,52 @@
         }
         .map-card-header { padding: 20px; background: white; border-bottom: 1px solid #edf2f7; text-align: right; }
         .map-card-header h3 { font-size: 20px; color: var(--primary); }
-        
+
         .map-wrapper iframe { width: 100%; height: 450px; border: none; display: block; }
 
-        /* بخش اضافه کردن آسان لینک‌های جدید */
         .add-new-hint {
             margin-top: 50px; padding: 20px; border: 2px dashed #cbd5e1;
             border-radius: 10px; color: var(--gray); font-size: 14px;
         }
     </style>
 </head>
+
 <body>
+<div class="container">
 
-    <div class="container">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</a>
-        
-        <h1>مرکز نقشه‌ها و لینک‌های شاهین وب</h1>
-        <p class="subtitle">در این بخش می‌توانید تمام موقعیت‌ها و نقشه‌های اشتراک‌گذاری شده را مشاهده کنید.</p>
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی
+    </a>
 
-        <!-- نقشه شماره ۱ -->
-        <div class="map-card">
-            <div class="map-card-header">
-                <h3><i class="fas fa-map-marker-alt"></i> موقعیت اصلی آکادمی</h3>
-            </div>
-            <div class="map-wrapper">
-                <!-- کد نقشه گوگل شما -->
-                <iframe src="https://www.google.com/maps/d/embed?mid=1nZXJh-nTR1fP5H6F7eQXrhwDIifzHVg&ehbc=2E312F"></iframe>
-            </div>
-        </div>
+    <h1>نقشه ساحات غیرپلانی مزار شریف</h1>
+    <p class="subtitle">اطلاعات شهرسازی و پلان شهری مرتبط با وزارت شهرسازی و بسهازی</p>
 
-        <!-- برای اضافه کردن نقشه جدید، کافیست کد بالا را کپی کرده و در اینجا قرار دهید -->
-
-        <div class="add-new-hint">
-            <p>برای اضافه کردن نقشه یا لینک جدید، کافیست کد HTML مربوط به کارت نقشه را در فایل <code>links.html</code> کپی کنید.</p>
-        </div>
-
-        <footer style="margin-top: 50px; opacity: 0.6; font-size: 12px;">
-            <p>تمامی حقوق برای شاهین وب محفوظ است © ۲۰۲۶</p>
-        </footer>
+    <!-- 🔹 متن SEO -->
+    <div class="seo-text">
+        <p>
+            این صفحه شامل <strong>نقشه ساحات غیرپلانی شهر مزار شریف</strong> می‌باشد که برای استفاده شهروندان، مهندسان، محصلین و مراجعین
+            <strong>وزارت شهرسازی و بسهازی</strong> تهیه شده است.
+        </p>
+        <p>
+            در این نقشه موقعیت ساحات مختلف شهری از جمله <strong>ساحه ابوایوب</strong> نمایش داده شده و به بررسی
+            <strong>پلان شهری</strong>، تفکیک ساحات پلانی و غیرپلانی و درک بهتر وضعیت توسعه شهری در
+            <strong>مزار شریف</strong> کمک می‌کند.
+        </p>
     </div>
 
-</body>
-</html>
+    <!-- 🔹 نقشه -->
+    <div class="map-card">
+        <div class="map-card-header">
+            <h3><i class="fas fa-map-marker-alt"></i> نقشه ساحات غیرپلانی مزار شریف</h3>
+        </div>
+        <div class="map-wrapper">
+            <iframe
+                src="https://www.google.com/maps/d/embed?mid=1nZXJh-nTR1fP5H6F7eQXrhwDIifzHVg&ehbc=2E312F"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="نقشه ساحات غیرپلانی مزار شریف وزارت شهرسازی">
+            </iframe>
+        </div>
+    </div>
+
+    <div cl
