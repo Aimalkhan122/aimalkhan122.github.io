@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاهین وب | مرکز نقشه‌ها و لینک‌ها</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap');
+
+        :root {
+            --primary: #4f46e5;
+            --dark: #0f172a;
+            --light: #ffffff;
+            --gray: #64748b;
+            --bg-alt: #f1f5f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+        body { background-color: var(--bg-alt); color: var(--dark); line-height: 1.6; padding: 40px 20px; }
+
+        .container { max-width: 1000px; margin: 0 auto; text-align: center; }
+        
+        h1 { font-size: 32px; margin-bottom: 10px; color: var(--dark); }
+        p.subtitle { color: var(--gray); margin-bottom: 40px; }
+
+        .back-btn {
+            display: inline-block; margin-bottom: 30px; padding: 10px 20px;
+            background: var(--primary); color: white; text-decoration: none;
+            border-radius: 25px; font-weight: bold; transition: 0.3s;
+        }
+        .back-btn:hover { background: #4338ca; transform: translateX(5px); }
+
+        /* استایل کارت‌های نقشه */
+        .map-card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        .map-card-header { padding: 20px; background: white; border-bottom: 1px solid #edf2f7; text-align: right; }
+        .map-card-header h3 { font-size: 20px; color: var(--primary); }
+        
+        .map-wrapper iframe { width: 100%; height: 450px; border: none; display: block; }
+
+        /* بخش اضافه کردن آسان لینک‌های جدید */
+        .add-new-hint {
+            margin-top: 50px; padding: 20px; border: 2px dashed #cbd5e1;
+            border-radius: 10px; color: var(--gray); font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</a>
+        
+        <h1>مرکز نقشه‌ها و لینک‌های شاهین وب</h1>
+        <p class="subtitle">در این بخش می‌توانید تمام موقعیت‌ها و نقشه‌های اشتراک‌گذاری شده را مشاهده کنید.</p>
+
+        <!-- نقشه شماره ۱ -->
+        <div class="map-card">
+            <div class="map-card-header">
+                <h3><i class="fas fa-map-marker-alt"></i> موقعیت اصلی آکادمی</h3>
+            </div>
+            <div class="map-wrapper">
+                <!-- کد نقشه گوگل شما -->
+                <iframe src="https://www.google.com/maps/d/embed?mid=1nZXJh-nTR1fP5H6F7eQXrhwDIifzHVg&ehbc=2E312F"></iframe>
+            </div>
+        </div>
+
+        <!-- برای اضافه کردن نقشه جدید، کافیست کد بالا را کپی کرده و در اینجا قرار دهید -->
+
+        <div class="add-new-hint">
+            <p>برای اضافه کردن نقشه یا لینک جدید، کافیست کد HTML مربوط به کارت نقشه را در فایل <code>links.html</code> کپی کنید.</p>
+        </div>
+
+        <footer style="margin-top: 50px; opacity: 0.6; font-size: 12px;">
+            <p>تمامی حقوق برای شاهین وب محفوظ است © ۲۰۲۶</p>
+        </footer>
+    </div>
+
+</body>
+</html>
