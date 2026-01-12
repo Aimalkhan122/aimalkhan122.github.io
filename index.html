@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شاهین | شاهکار در اموزش</title>
+    <title>شاهین وب | آکادمی آموزش‌های تخصصی</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap');
 
         :root {
-            --primary: #26c6da;
-            --dark: #1a1a1a;
+            --primary: #4f46e5; /* تغییر رنگ به آبی تیره آموزشی */
+            --dark: #0f172a;
             --light: #ffffff;
-            --gray: #757575;
-            --bg-alt: #f8f9fa;
+            --gray: #64748b;
+            --bg-alt: #f1f5f9;
         }
 
         * {
@@ -21,32 +21,34 @@
             margin: 0;
             padding: 0;
             font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* منوی چسبان (Sticky Nav) */
+        /* هدر و منو */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 50px;
+            padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: 0.4s;
-            background: transparent;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.98);
             padding: 10px 50px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
 
         header.scrolled .logo h2, header.scrolled nav a {
@@ -59,29 +61,36 @@
         }
 
         .logo { color: white; text-align: right; }
-        .logo h2 { font-size: 24px; font-weight: 900; transition: 0.3s; }
-        .logo p { font-size: 10px; opacity: 0.8; }
+        .logo h2 { font-size: 28px; font-weight: 900; transition: 0.3s; }
+        .logo p { font-size: 12px; opacity: 0.8; }
 
+        nav { display: flex; align-items: center; }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 15px;
             transition: 0.3s;
+            opacity: 0.9;
         }
+
+        nav a:hover { color: var(--primary); }
 
         .btn-outline {
             border: 1px solid white;
-            padding: 6px 20px;
+            padding: 8px 25px;
             border-radius: 25px;
+            margin-right: 20px;
+            text-decoration: none;
             transition: 0.3s;
         }
 
-        /* Hero Section */
+        /* بخش Hero */
         .hero {
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -93,94 +102,67 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(15, 23, 42, 0.6);
         }
 
-        .hero-content { position: relative; z-index: 1; animation: fadeInUp 1s; }
-        .hero-content h1 { font-size: 50px; margin-bottom: 20px; }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; animation: fadeInUp 1s ease-out; }
+        .hero-content p.subtitle { font-size: 18px; margin-bottom: 10px; letter-spacing: 2px; opacity: 0.9; }
+        .hero-content h1 { font-size: 56px; font-weight: 900; margin-bottom: 30px; }
 
-        /* بخش فرم تماس (جدید) */
-        .contact-section {
-            padding: 80px 20px;
-            background: var(--bg-alt);
-            text-align: center;
-        }
-
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .form-group { margin-bottom: 20px; text-align: right; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-        }
-
-        .btn-submit {
+        .btn-hero {
             background: var(--primary);
             color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            cursor: pointer;
+            padding: 12px 40px;
+            border-radius: 5px;
+            text-decoration: none;
             font-weight: bold;
-            width: 100%;
-        }
-
-        /* فوتر حرفه‌ای (جدید) */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 50px 20px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 { margin-bottom: 20px; color: var(--primary); }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; opacity: 0.7; cursor: pointer; }
-        .footer-col ul li:hover { opacity: 1; color: var(--primary); }
-
-        .social-links a {
-            color: white;
-            font-size: 20px;
-            margin-left: 15px;
             transition: 0.3s;
+            display: inline-block;
         }
 
+        .btn-hero:hover { background: #4338ca; transform: translateY(-3px); }
+
+        /* بخش نقل‌قول آموزشی */
+        .quote-section { padding: 100px 20px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .quote-section h3 { font-size: 24px; font-weight: 700; margin-bottom: 15px; }
+        .quote-section p.author { color: var(--gray); margin-bottom: 30px; }
+        .quote-section p.description { color: var(--gray); font-size: 14px; line-height: 2.2; }
+
+        /* بخش دوره‌های آموزشی */
+        .cards-container { display: flex; justify-content: center; gap: 30px; padding: 50px; flex-wrap: wrap; background: var(--bg-alt); }
+        .card { width: 450px; text-align: center; background: white; padding-bottom: 30px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 250px; object-fit: cover; margin-bottom: 20px; transition: 0.5s; }
+        .card:hover img { transform: scale(1.05); }
+        .card h4 { color: var(--primary); font-size: 20px; margin-bottom: 15px; }
+        .card p { font-size: 14px; color: var(--gray); margin-bottom: 20px; padding: 0 20px; }
+        .card a { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 14px; }
+
+        /* بخش تماس با ما */
+        .contact-section { padding: 100px 20px; background: white; text-align: center; }
+        .contact-container { max-width: 600px; margin: 0 auto; background: var(--bg-alt); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; text-align: right; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 15px; }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; font-size: 16px; }
+        .btn-submit:hover { background: #4338ca; }
+
+        /* فوتر */
+        footer { background: var(--dark); color: white; padding: 60px 50px 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { margin-bottom: 20px; color: var(--primary); }
+        .footer-col p { opacity: 0.7; font-size: 14px; }
+        .social-links { margin-top: 20px; }
+        .social-links a { color: white; font-size: 22px; margin-left: 15px; transition: 0.3s; }
         .social-links a:hover { color: var(--primary); }
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 12px; opacity: 0.6; }
 
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            text-align: center;
-            font-size: 12px;
-            opacity: 0.6;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
             nav { display: none; }
-            .hero-content h1 { font-size: 32px; }
+            .hero-content h1 { font-size: 36px; }
+            .card { width: 100%; }
         }
     </style>
 </head>
@@ -188,79 +170,97 @@
 
     <header id="navbar">
         <div class="logo">
-            <h2>شاهین</h2>
-            <p>سایت اموزشی</p>
+            <h2>شاهین وب</h2>
+            <p>آکادمی آموزش‌های تخصصی</p>
         </div>
         <nav>
             <a href="#">صفحه نخست</a>
             <a href="#about">درباره ما</a>
-            <a href="#contact">تماس</a>
+            <a href="#courses">دوره‌ها</a>
+            <a href="#contact">مشاوره رایگان</a>
+            <a href="#contact" class="btn-outline">ثبت‌نام</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>دانش راه به سوی کامیابی</h1>
-            <br>
-            <a href="#contact" class="btn-submit" style="width: auto; text-decoration: none;">همین حالا شروع کنید</a>
+            <p class="subtitle">دانش، قدرت است ...</p>
+            <h1>آینده خود را با شاهین وب بسازید</h1>
+            <a href="#courses" class="btn-hero">مشاهده دوره‌ها</a>
         </div>
     </section>
-    <!-- بخش تماس با ما -->
+
+    <section id="about" class="quote-section">
+        <h3>" آموزش، قوی‌ترین سلاحی است که می‌توانید برای تغییر جهان از آن استفاده کنید. "</h3>
+        <p class="author">(نلسون ماندلا)</p>
+        <p class="description">
+            شاهین وب با هدف ارتقای سطح دانش فنی و تخصصی دانشجویان، دوره‌های آموزشی متنوعی را در حوزه‌های مختلف تکنولوژی و مهارت‌های نرم ارائه می‌دهد. ما در کنار شما هستیم تا به اهداف حرفه‌ای خود دست یابید.
+        </p>
+    </section>
+
+    <section id="courses" class="cards-container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="آموزش برنامه‌نویسی">
+            <h4>آموزش برنامه‌نویسی</h4>
+            <p>از صفر تا صد برنامه‌نویسی وب و موبایل را با اساتید مجرب و پروژه‌های واقعی یاد بگیرید.</p>
+            <a href="#contact">مشاهده جزئیات</a>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=800&q=80" alt="طراحی رابط کاربری">
+            <h4>طراحی UI/UX</h4>
+            <p>اصول طراحی مدرن و تجربه کاربری را بیاموزید و به یک طراح حرفه‌ای تبدیل شوید.</p>
+            <a href="#about">بیشتر بخوانید</a>
+        </div>
+    </section>
+
     <section id="contact" class="contact-section">
-        <h2 style="margin-bottom: 30px;">با ما در تماس باشید</h2>
+        <h2 style="margin-bottom: 30px;">درخواست مشاوره آموزشی</h2>
         <div class="contact-container">
-            <form onsubmit="event.preventDefault(); alert('پیام شما با موفقیت ارسال شد!');">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="90cf0fb8-d8be-448c-b8f2-b897777e3ed0">
+
                 <div class="form-group">
                     <label>نام و نام خانوادگی</label>
-                    <input type="text" placeholder="نام خود را وارد کنید" required>
+                    <input type="text" name="name" placeholder="نام خود را وارد کنید" required>
                 </div>
                 <div class="form-group">
-                    <label>ایمیل</label>
-                    <input type="email" placeholder="email@example.com" required>
+                    <label>ایمیل یا شماره تماس</label>
+                    <input type="text" name="contact_info" placeholder="ایمیل یا شماره تماس خود را وارد کنید" required>
                 </div>
                 <div class="form-group">
-                    <label>پیام شما</label>
-                    <textarea rows="5" placeholder="چطور می‌توانیم به شما کمک کنیم؟"></textarea>
+                    <label>دوره مورد علاقه</label>
+                    <textarea name="message" rows="5" placeholder="در مورد کدام دوره نیاز به راهنمایی دارید؟" required></textarea>
                 </div>
-                <button type="submit" class="btn-submit">ارسال پیام</button>
+                
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <button type="submit" class="btn-submit">ارسال درخواست</button>
             </form>
         </div>
     </section>
 
-    <!-- فوتر -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>درباره جهان‌گرد</h4>
-                <p>ما با بیش از 4 سال سابقه در حوزه اموزش امکانات رابرای شما فراهم میسازیم.</p>
+                <h4>شاهین وب</h4>
+                <p>پیشرو در ارائه خدمات آموزشی آنلاین و حضوری با تمرکز بر مهارت‌های بازار کار.</p>
             </div>
             <div class="footer-col">
-                <h4>لینک‌های سریع</h4>
-                <ul>
-                    <li>سوالات متداول</li>
-                    <li>قوانین و مقررات</li>
-                    <li>فرصت‌های شغلی</li>
-                    <li>وبلاگ</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>تماس با ما</h4>
-                <p><i class="fas fa-phone"></i> ۰۲۱-۱۲۳۴۵۶۷۸</p>
-                <p><i class="fas fa-envelope"></i> info@jahangard.com</p>
-                <div class="social-links" style="margin-top: 20px;">
+                <h4>ارتباط با ما</h4>
+                <p><i class="fas fa-phone"></i> ۰۲۱-۸۸۸۸۸۸۸۸</p>
+                <p><i class="fas fa-envelope"></i> info@shahinweb.com</p>
+                <div class="social-links">
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>تمامی حقوق این وب‌سایت متعلق به شاهین ویب می‌باشد © ۲۰۲۶</p>
+            <p>تمامی حقوق این وب‌سایت متعلق به آکادمی شاهین وب می‌باشد © ۲۰۲۶</p>
         </div>
     </footer>
 
     <script>
-        // تغییر استایل منو هنگام اسکرول
         window.onscroll = function() {
             const navbar = document.getElementById("navbar");
             if (window.pageYOffset > 50) {
