@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shahenweb-2af.github.io/shahenweb.2af/sitemap.xml
