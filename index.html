@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- بخش سئو (SEO) - این بخش باعث می‌شود با هر دو نام در گوگل پیدا شوید -->
+    <!-- بخش سئو (SEO) -->
     <title>شاهین وب | ShahenWeb | آکادمی آموزش‌های تخصصی</title>
-    <meta name="description" content="شاهین وب (ShahenWeb)؛ ارائه دهنده خدمات آموزشی و اطلاعات تخصصی در زمینه‌های مختلف آموزشی و فنی.">
+    <meta name="description" content="شاهین وب (ShahenWeb)؛ ارائه دهنده خدمات آموزشی و اطلاعات تخصصی در زمینه‌های مختلف آموزشی و فنی با متدهای مدرن.">
     <meta name="keywords" content="ShahenWeb, شاهین وب, خدمات آموزشی, نقشه برداری, شهرسازی, پلان های شهری">
     <meta name="author" content="ShahenWeb - شاهین وب">
     <link rel="canonical" href="https://aimalkhan122.github.io/">
     
-    <!-- Open Graph برای نمایش بهتر در شبکه‌های اجتماعی -->
-    <meta property="og:title" content="شاهین وب | ShahenWeb">
-    <meta property="og:description" content="ارائه دهنده بهترین خدمات آموزشی در شاهین وب (ShahenWeb).">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aimalkhan122.github.io/">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap');
 
         :root {
             --primary: #4f46e5;
+            --primary-light: #818cf8;
             --dark: #0f172a;
             --light: #ffffff;
             --gray: #64748b;
-            --bg-alt: #f1f5f9;
+            --bg-alt: #f8fafc;
+            --pearl-gradient: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
         * {
@@ -44,7 +44,42 @@
             overflow-x: hidden;
         }
 
-        /* هدر و منو */
+        /* افکت مرواریدی و صیقلی (Pearl/Glossy Effect) */
+        .pearl-effect {
+            position: relative;
+            overflow: hidden;
+            background: var(--primary);
+            color: white;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .pearl-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease-out;
+            z-index: -1;
+        }
+
+        .pearl-effect:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5), inset 0 0 15px rgba(255,255,255,0.3);
+            filter: brightness(1.1);
+        }
+
+        .pearl-effect:hover::before {
+            transform: scale(1);
+        }
+
+        /* هدر شیشه‌ای (Glassmorphism) */
         header {
             position: fixed;
             top: 0;
@@ -54,115 +89,220 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: 0.4s;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+            transition: 0.5s;
+            background: transparent;
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 10px 50px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 12px 50px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         header.scrolled .logo h2, header.scrolled nav a { color: var(--dark); }
-        header.scrolled .btn-outline { border-color: var(--primary); color: var(--primary); }
-
+        
         .logo { color: white; text-align: right; }
-        .logo h2 { font-size: 28px; font-weight: 900; transition: 0.3s; }
+        .logo h2 { font-size: 28px; font-weight: 900; }
         .logo p { font-size: 12px; opacity: 0.8; }
 
         nav { display: flex; align-items: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 15px; transition: 0.3s; opacity: 0.9; }
-        nav a:hover { color: var(--primary); }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 15px; 
+            font-weight: 500;
+            transition: 0.3s; 
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
 
-        .btn-outline {
-            border: 1px solid white;
-            padding: 8px 25px;
-            border-radius: 25px;
-            margin-right: 20px;
-            text-decoration: none;
-            transition: 0.3s;
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            color: var(--primary-light);
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.2);
         }
 
         /* بخش Hero */
         .hero {
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.6);
+        .hero-content h1 { 
+            font-size: clamp(32px, 5vw, 64px); 
+            font-weight: 900; 
+            margin-bottom: 25px; 
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-
-        .hero-content { position: relative; z-index: 1; max-width: 800px; animation: fadeInUp 1s ease-out; }
-        .hero-content h1 { font-size: 56px; font-weight: 900; margin-bottom: 30px; }
 
         .btn-hero {
-            background: var(--primary);
-            color: white;
-            padding: 12px 40px;
-            border-radius: 5px;
+            padding: 15px 45px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            font-size: 18px;
             display: inline-block;
         }
 
-        /* بخش نقشه گوگل (جدید) */
-        .map-section {
-            padding: 80px 20px;
+        /* بخش ویژگی‌ها (Features) با طراحی شیشه‌ای */
+        .features {
+            padding: 100px 20px;
             background: var(--bg-alt);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 { font-size: 36px; font-weight: 800; color: var(--dark); }
+        .section-title div { width: 80px; height: 4px; background: var(--primary); margin: 15px auto; border-radius: 2px; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .feature-card i {
+            font-size: 45px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: 0.4s;
+        }
+
+        .feature-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* بخش آمار (Stats) */
+        .stats-section {
+            padding: 80px 20px;
+            background: var(--dark);
+            color: white;
             text-align: center;
         }
 
-        .map-container {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
             max-width: 1000px;
-            margin: 40px auto 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 5px solid white;
+            margin: 0 auto;
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            display: block;
+        .stat-item h3 { font-size: 48px; font-weight: 900; color: var(--primary-light); margin-bottom: 10px; }
+        .stat-item p { font-size: 16px; opacity: 0.8; }
+
+        /* بخش تماس */
+        .contact-section { padding: 100px 20px; background: white; }
+        .contact-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr 1.5fr; 
+            gap: 40px;
+            background: var(--bg-alt);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
         }
 
-        /* بخش تماس با ما */
-        .contact-section { padding: 100px 20px; background: white; text-align: center; }
-        .contact-container { max-width: 600px; margin: 0 auto; background: var(--bg-alt); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .contact-info { text-align: right; }
+        .contact-info h3 { margin-bottom: 20px; font-size: 24px; }
+        .info-item { display: flex; align-items: center; margin-bottom: 20px; flex-direction: row-reverse; }
+        .info-item i { width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-left: 15px; color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
         .form-group { margin-bottom: 20px; text-align: right; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 15px; }
-        .btn-submit { background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; font-size: 16px; }
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 15px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 12px; 
+            outline: none; 
+            transition: 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
 
         /* فوتر */
-        footer { background: var(--dark); color: white; padding: 60px 50px 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h4 { margin-bottom: 20px; color: var(--primary); }
-        .social-links a { color: white; font-size: 22px; margin-left: 15px; transition: 0.3s; }
-        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 12px; opacity: 0.6; }
+        footer { background: var(--dark); color: white; padding: 80px 50px 30px; }
+        .footer-content { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr; 
+            gap: 60px; 
+            max-width: 1200px; 
+            margin: 0 auto 50px;
+        }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .footer-col h4 { font-size: 20px; margin-bottom: 25px; color: var(--primary-light); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: white; padding-right: 5px; }
+
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { 
+            width: 40px; height: 40px; background: rgba(255,255,255,0.1); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            color: red; text-decoration: none; transition: 0.4s;
+        }
+        .social-links a:hover { background: var(--primary); transform: translateY(-5px); }
+
+        .copyright { 
+            text-align: center; 
+            padding-top: 30px; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            font-size: 14px; 
+            color: rgba(255,255,255,0.5); 
+        }
+
+        @media (max-width: 992px) {
+            .contact-container { grid-template-columns: 1fr; }
+            header { padding: 15px 20px; }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .social-links { justify-content: center; }
+            .info-item { justify-content: center; }
+        }
 
         @media (max-width: 768px) {
-            header { padding: 15px 20px; }
             nav { display: none; }
             .hero-content h1 { font-size: 36px; }
-            .map-container iframe { height: 300px; }
         }
     </style>
 </head>
@@ -171,77 +311,206 @@
     <header id="navbar">
         <div class="logo">
             <h2>شاهین وب</h2>
-            <p>آکادمی آموزش‌های تخصصی</p>
+            <p>ShahenWeb Academy</p>
         </div>
         <nav>
             <a href="#">صفحه نخست</a>
-            <a href="#about">درباره ما</a>
-            <a href="links.html">نقشه‌ها و لینک‌ها</a>
-            <a href="#contact">تماس</a>
-            <a href="#contact" class="btn-outline">ثبت‌نام</a>
+            <a href="#features">خدمات ما</a>
+            <a href="links.html">نقشه‌ها</a>
+            <a href="#contact">تماس با ما</a>
+            <a href="#contact" class="pearl-effect" style="padding: 8px 25px; border-radius: 25px; margin-right: 15px;">ثبت‌نام</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <h1>آینده خود را با شاهین وب بسازید</h1>
-            <a href="#contact" class="btn-hero">شروع یادگیری</a>
+            <p style="font-size: 20px; margin-bottom: 40px; opacity: 0.9;">مرکز تخصصی آموزش‌های فنی، مهندسی و شهرسازی</p>
+            <a href="#contact" class="btn-hero pearl-effect">شروع یادگیری از امروز</a>
         </div>
     </section>
-
-    <!-- بخش معرفی نقشه‌ها -->
-    <section id="location" class="map-section">
-        <h2 style="margin-bottom: 10px;">موقعیت و نقشه‌های ما</h2>
-        <p style="color: var(--gray);">برای مشاهده تمام نقشه‌ها و لینک‌های اشتراک‌گذاری شده، به صفحه اختصاصی ما مراجعه کنید.</p>
-        <div style="margin-top: 30px;">
-            <a href="links.html" class="btn-hero" style="text-decoration: none;">مشاهده تمام نقشه‌ها</a>
-        </div>
-    </section>
-
-    <!-- بخش کلمات کلیدی برای سئو -->
-    <section class="quote-section" style="background: var(--bg-alt); padding: 50px 20px;">
-        <h4 style="margin-bottom: 20px; color: var(--dark);">خدمات تخصصی و اطلاعات شهری در شاهین وب (ShahenWeb)</h4>
-        <p style="font-size: 14px; color: var(--gray); max-width: 800px; margin: 0 auto;">
-            شاهین وب (ShahenWeb) مرجعی برای دسترسی به اطلاعات ، بررسی انواع <strong>پلان</strong> های شهری، <strong>پلان های بهسازی</strong>،  و  می‌باشد. ما با پیگیری پروژه‌های مرتبط با <strong>وزارت شهرسازی</strong>، تلاش می‌کنیم بهترین خدمات آموزشی و اطلاع‌رسانی را در این حوزه‌ها فراهم آوریم.
-        </p>
-    </section>
-
     <section id="contact" class="contact-section">
-        <h2 style="margin-bottom: 30px;">درخواست مشاوره آموزشی</h2>
-        <div class="contact-container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>ارتباط با ما</h2>
+            <div></div>
+        </div>
+        
+        <div class="contact-container" data-aos="fade-up">
+            <div class="contact-info">
+                <h3>اطلاعات تماس</h3>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p dir="ltr">+93 784 871 989</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>aimalkhantorakhil@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>کابل-افغانستان</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+            
             <form action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="90cf0fb8-d8be-448c-b8f2-b897777e3ed0">
                 <div class="form-group">
-                    <label>نام و نام خانوادگی</label>
-                    <input type="text" name="name" placeholder="نام خود را وارد کنید" required>
+                    <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
                 </div>
                 <div class="form-group">
-                    <label>ایمیل یا شماره تماس</label>
-                    <input type="text" name="contact_info" placeholder="ایمیل یا شماره تماس خود را وارد کنید" required>
+                    <input type="email" name="email" placeholder="ایمیل معتبر" required>
                 </div>
                 <div class="form-group">
-                    <label>دوره مورد علاقه</label>
-                    <textarea name="message" rows="5" placeholder="در مورد کدام دوره نیاز به راهنمایی دارید؟" required></textarea>
+                    <textarea name="message" rows="4" placeholder="پیام یا سوال شما" required></textarea>
                 </div>
-                <input type="hidden" name="redirect" value="https://web3forms.com/success">
-                <button type="submit" class="btn-submit">ارسال درخواست</button>
+<div class="btn-wrapper">
+  <button type="submit" class="btn-submit pearl-effect" id="sendBtn">
+    ارسال پیام
+  </button>
+
+  <video class="btn-video" id="btnVideo" muted>
+    <source src="animation.mp4" type="video/mp4">
+  </video>
+</div>
+
+<style>
+  /* ستایل مهره‌ای با رنگ مالته-جگری */
+  .btn-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .btn-submit.pearl-effect {
+    background: radial-gradient(
+      circle at top left,
+      #ff9933 0%,   /* مالته روشن */
+      #ff6600 100%  /* مالته تیره */
+    );
+    color: #fff;
+    border: none;
+    border-radius: 999px; /* حالت مهره‌ای */
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow:
+      inset 0 2px 4px rgba(255,255,255,0.6),
+      inset 0 -3px 6px rgba(0,0,0,0.15),
+      0 6px 14px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* درخشش مهره */
+  .btn-submit.pearl-effect::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    width: 40%;
+    height: 40%;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    filter: blur(6px);
+  }
+
+  /* حالت کلیک */
+  .btn-submit.pearl-effect:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow:
+      inset 0 4px 6px rgba(0,0,0,0.2),
+      0 3px 6px rgba(0,0,0,0.2);
+  }
+
+  /* ویدیوی روی دکمه */
+  .btn-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 999px;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("sendBtn");
+  const video = document.getElementById("btnVideo");
+
+  btn.addEventListener("click", function (e) {
+    e.preventDefault(); // جلوگیری از رفرش صفحه
+
+    video.style.display = "block";
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+      video.style.display = "none";
+    };
+  });
+</script>
+
+
+<script>
+  const btn = document.getElementById("sendBtn");
+  const video = document.getElementById("btnVideo");
+
+  btn.addEventListener("click", function (e) {
+    e.preventDefault(); // جلوگیری از رفرش صفحه
+
+    video.style.display = "block";
+    video.currentTime = 0;
+    video.play();
+
+    video.onended = function () {
+      video.style.display = "none";
+    };
+  });
+</script>
+
+<script>
+  document.getElementById("sendBtn").addEventListener("click", function (e) {
+    e.preventDefault(); // جلوگیری از رفرش شدن صفحه
+    alert("پیام شما با موفقیت ارسال شد ✅");
+  });
+</script>
+
             </form>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
+        <div class="footer-content">
             <div class="footer-col">
-                <h4>شاهین وب</h4>
-                <p>پیشرو در ارائه خدمات آموزشی آنلاین و حضوری.</p>
+                <h4>درباره شاهین وب</h4>
+                <p style="opacity: 0.7; font-size: 14px;">شاهین وب (ShahenWeb) پیشرو در ارائه خدمات آموزشی آنلاین و حضوری در حوزه‌های مهندسی، شهرسازی و تکنولوژی است. هدف ما توانمندسازی جوانان برای ورود به بازار کار حرفه‌ای است.</p>
             </div>
             <div class="footer-col">
-                <h4>ارتباط با ما</h4>
-                <p><i class="fas fa-phone"></i>+93784871989</p>
-                <p><i class="fas fa-envelope"></i> aimalkhantorakhil@gmail.com</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
+                <h4>لینک‌های سریع</h4>
+                <ul class="footer-links">
+                    <li><a href="#">صفحه نخست</a></li>
+                    <li><a href="#features">خدمات ما</a></li>
+                    <li><a href="links.html">نقشه‌ها</a></li>
+                    <li><a href="#contact">ثبت‌نام</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>ساعات کاری</h4>
+                <p style="opacity: 0.7; font-size: 14px;">شنبه تا پنجشنبه: ۸ صبح تا ۵ عصر</p>
+                <p style="opacity: 0.7; font-size: 14px; margin-top: 10px;">جمعه‌ها: تعطیل</p>
             </div>
         </div>
         <div class="copyright">
@@ -249,15 +518,23 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // مقداردهی اولیه انیمیشن‌های اسکرول
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // تغییر استایل هدر هنگام اسکرول
         window.onscroll = function() {
             const navbar = document.getElementById("navbar");
-            if (window.pageYOffset > 50) { navbar.classList.add("scrolled"); } 
-            else { navbar.classList.remove("scrolled"); }
+            if (window.pageYOffset > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
         };
     </script>
 </body>
 </html>
-
-
-live
