@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://shahenweb-2af.github.io/shahenweb.2af/sitemap.xml
+
+# آدرس نقشه سایت برای دسترسی سریع‌تر موتورهای جستجو
+Sitemap: https://shahenweb.github.io/sitemap.xml

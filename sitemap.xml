@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- صفحه اصلی -->
   <url>
-    <loc>https://shahenweb-2af.github.io/shahenweb.2af/</loc>
-    <lastmod>2026-01-24</lastmod>
+    <loc>https://shahenweb.github.io/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- صفحه نقشه‌ها -->
   <url>
-    <loc>https://shahenweb-2af.github.io/shahenweb.2af/links.html</loc>
-    <lastmod>2026-01-24</lastmod>
+    <loc>https://shahenweb.github.io/links.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
