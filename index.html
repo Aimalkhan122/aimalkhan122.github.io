@@ -10,6 +10,7 @@
     <meta name="keywords" content="ShahenWeb, شاهین وب, خدمات آموزشی, نقشه برداری, شهرسازی, پلان های شهری">
     <meta name="author" content="ShahenWeb - شاهین وب">
     <link rel="canonical" href="https://shahenweb.github.io/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -329,6 +330,7 @@
             <a href="#contact" class="btn-hero pearl-effect">شروع یادگیری از امروز</a>
         </div>
     </section>
+
     <section id="contact" class="contact-section">
         <div class="section-title" data-aos="fade-up">
             <h2>ارتباط با ما</h2>
@@ -369,125 +371,14 @@
                 <div class="form-group">
                     <textarea name="message" rows="4" placeholder="پیام یا سوال شما" required></textarea>
                 </div>
-<div class="btn-wrapper">
-  <button type="submit" class="btn-submit pearl-effect" id="sendBtn">
-    ارسال پیام
-  </button>
-
-  <video class="btn-video" id="btnVideo" muted>
-    <source src="animation.mp4" type="video/mp4">
-  </video>
-</div>
-
-<style>
-  /* ستایل مهره‌ای با رنگ مالته-جگری */
-  .btn-wrapper {
-    position: relative;
-    display: inline-block;
-  }
-
-  .btn-submit.pearl-effect {
-    background: radial-gradient(
-      circle at top left,
-      #ff9933 0%,   /* مالته روشن */
-      #ff6600 100%  /* مالته تیره */
-    );
-    color: #fff;
-    border: none;
-    border-radius: 999px; /* حالت مهره‌ای */
-    padding: 14px 36px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-
-    box-shadow:
-      inset 0 2px 4px rgba(255,255,255,0.6),
-      inset 0 -3px 6px rgba(0,0,0,0.15),
-      0 6px 14px rgba(0,0,0,0.25);
-
-    transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* درخشش مهره */
-  .btn-submit.pearl-effect::after {
-    content: "";
-    position: absolute;
-    top: 6px;
-    left: 10px;
-    width: 40%;
-    height: 40%;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    filter: blur(6px);
-  }
-
-  /* حالت کلیک */
-  .btn-submit.pearl-effect:active {
-    transform: translateY(2px) scale(0.98);
-    box-shadow:
-      inset 0 4px 6px rgba(0,0,0,0.2),
-      0 3px 6px rgba(0,0,0,0.2);
-  }
-
-  /* ویدیوی روی دکمه */
-  .btn-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-    z-index: 2;
-    pointer-events: none;
-    border-radius: 999px;
-  }
-</style>
-
-<script>
-  const btn = document.getElementById("sendBtn");
-  const video = document.getElementById("btnVideo");
-
-  btn.addEventListener("click", function (e) {
-    e.preventDefault(); // جلوگیری از رفرش صفحه
-
-    video.style.display = "block";
-    video.currentTime = 0;
-    video.play();
-
-    video.onended = function () {
-      video.style.display = "none";
-    };
-  });
-</script>
-
-
-<script>
-  const btn = document.getElementById("sendBtn");
-  const video = document.getElementById("btnVideo");
-
-  btn.addEventListener("click", function (e) {
-    e.preventDefault(); // جلوگیری از رفرش صفحه
-
-    video.style.display = "block";
-    video.currentTime = 0;
-    video.play();
-
-    video.onended = function () {
-      video.style.display = "none";
-    };
-  });
-</script>
-
-<script>
-  document.getElementById("sendBtn").addEventListener("click", function (e) {
-    e.preventDefault(); // جلوگیری از رفرش شدن صفحه
-    alert("پیام شما با موفقیت ارسال شد ✅");
-  });
-</script>
-
+                <div class="btn-wrapper">
+                    <button type="submit" class="btn-submit pearl-effect" id="sendBtn">
+                        ارسال پیام
+                    </button>
+                    <video class="btn-video" id="btnVideo" muted>
+                        <source src="animation.mp4" type="video/mp4">
+                    </video>
+                </div>
             </form>
         </div>
     </section>
@@ -495,8 +386,11 @@
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <h4>درباره شاهین وب</h4>
-                <p style="opacity: 0.7; font-size: 14px;">شاهین وب (ShahenWeb) پیشرو در ارائه خدمات آموزشی آنلاین و حضوری در حوزه‌های مهندسی، شهرسازی و تکنولوژی است. هدف ما توانمندسازی جوانان برای ورود به بازار کار حرفه‌ای است.</p>
+                <div class="logo">
+                    <h2>شاهین وب</h2>
+                    <p>ShahenWeb Academy</p>
+                </div>
+                <p style="margin-top: 20px; opacity: 0.7;">ارائه دهنده بهترین آموزش‌های تخصصی و فنی برای ورود به بازار کار.</p>
             </div>
             <div class="footer-col">
                 <h4>لینک‌های سریع</h4>
@@ -520,13 +414,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // مقداردهی اولیه انیمیشن‌های اسکرول
         AOS.init({
             duration: 1000,
             once: true
         });
 
-        // تغییر استایل هدر هنگام اسکرول
         window.onscroll = function() {
             const navbar = document.getElementById("navbar");
             if (window.pageYOffset > 50) {
